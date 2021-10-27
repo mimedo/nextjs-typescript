@@ -1,9 +1,9 @@
-import type { NextPage } from 'next'
 import Footer from '@components/common/Footer/Footer'
 import Header from '@components/common/Header/Header'
 import styles from '@assets/Home.module.css'
 
-const Home: NextPage = () => {
+// @ts-ignore
+const Home = ({ stars }) => {
   return (
     <div className={styles.container}>
       <Header />
@@ -47,10 +47,21 @@ const Home: NextPage = () => {
             </p>
           </a>
         </div>
+        <p>{ stars.stargazers_count }</p>
       </main>
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
+
+export async function getStaticProps() {
+  const res = await fetch('https://api.github.com/repos/vercel/next.js')
+  const json = await res.json()
+  return {
+    props: {
+      stars: json,
+    },
+  };
+}
