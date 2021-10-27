@@ -1,9 +1,10 @@
 import Footer from '@components/common/Footer/Footer'
 import Header from '@components/common/Header/Header'
 import styles from '@assets/Home.module.css'
+import { NextPage } from "next";
 
 // @ts-ignore
-const Home = ({ stars }) => {
+const Home: NextPage = ({ stars }) => {
   return (
     <div className={styles.container}>
       <Header />
