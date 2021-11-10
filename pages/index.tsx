@@ -1,7 +1,7 @@
 import Footer from '@components/common/Footer/Footer'
 import Header from '@components/common/Header/Header'
 import styles from '@assets/Home.module.css'
-import { NextPage } from "next";
+import {GetStaticProps, NextPage} from "next";
 
 // @ts-ignore
 const Home: NextPage = ({ stars }) => {
@@ -57,7 +57,7 @@ const Home: NextPage = ({ stars }) => {
 
 export default Home;
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const res = await fetch('https://api.github.com/repos/vercel/next.js')
   const json = await res.json()
   return {
