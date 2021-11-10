@@ -1,7 +1,8 @@
 import Footer from '@components/common/Footer/Footer'
 import Header from '@components/common/Header/Header'
 import styles from '@assets/Home.module.css'
-import {GetStaticProps, NextPage} from "next";
+import { GetStaticProps, NextPage } from "next";
+import Link from 'next/link'
 
 // @ts-ignore
 const Home: NextPage = ({ stars }) => {
@@ -18,6 +19,8 @@ const Home: NextPage = ({ stars }) => {
           Get started by editing{' '}
           <code className={styles.code}>pages/index.tsx</code>
         </p>
+
+        <Link href="/aboutme">About me</Link>
 
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
